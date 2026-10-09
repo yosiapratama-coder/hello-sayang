@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<title>Untuk Kamu, Sayangku ♡</title>
+<style>
+:root{--pink:#ff6f9f;--deep:#c83269;--soft:#fff0f5;--ink:#653047}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family: "Trebuchet MS", system-ui, sans-serif;color:var(--ink);background:radial-gradient(circle at top,#fff 0,#fff0f5 45%,#ffe0eb 100%);overflow-x:hidden}
+main{width:min(920px,92%);margin:auto;padding:34px 0 60px;position:relative;z-index:1}
+.hero{text-align:center;padding:28px 18px 20px}
+.kicker{letter-spacing:3px;text-transform:uppercase;font-size:.75rem;color:#b64d76;font-weight:800}
+h1{font-family:Georgia,serif;font-size:clamp(2.4rem,7vw,5rem);line-height:1.04;margin:14px 0;color:#a92d5d}
+.subtitle{font-size:1.05rem;max-width:560px;margin:0 auto;line-height:1.7}
+.heart{font-size:2.5rem;display:inline-block;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:scale(1.18)}}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px}
+.card{background:#ffffffd9;border:1px solid #ffd0e0;border-radius:24px;padding:24px;box-shadow:0 14px 35px #b52d5d12;backdrop-filter:blur(8px)}
+.card h2{margin:0 0 10px;font-family:Georgia,serif;color:#a92d5d;font-size:1.55rem}
+.card p{line-height:1.7;margin:8px 0 16px}
+.big-icon{font-size:2.2rem;margin-bottom:8px}
+button,.button{border:0;border-radius:999px;padding:13px 18px;font-weight:800;font-size:.96rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .18s,box-shadow .18s}
+button:hover,.button:hover{transform:translateY(-2px);box-shadow:0 8px 20px #c8326930}
+.primary{background:var(--pink);color:white}
+.secondary{background:#ffe0eb;color:#9c2854}
+.full{width:100%}
+.progress-wrap{height:12px;border-radius:99px;background:#ffe0eb;overflow:hidden;margin:16px 0 8px}
+#progress{height:100%;width:0;background:linear-gradient(90deg,#ff8bb2,#c83269);border-radius:99px;transition:width .45s}
+.percent{font-weight:900;color:#b32f63}
+.note{font-size:.82rem;color:#976477}
+.letter{display:none;margin-top:16px;background:#fff8fb;border:1px dashed #ee91b4;border-radius:18px;padding:20px;line-height:1.85;animation:fade .35s ease}
+.letter.show{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+footer{text-align:center;padding:30px 12px 0;color:#a75a78;font-size:.9rem}
+.float{position:fixed;bottom:-40px;opacity:.65;pointer-events:none;animation:floatUp linear forwards;z-index:0}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+.banner{margin-top:18px;text-align:center;background:#fff9fc;border-radius:18px;padding:16px;border:1px solid #ffdae7}
+
+#pinGate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(circle at top,#fff 0,#fff0f5 48%,#ffdce9 100%)}
+.pin-card{width:min(390px,100%);padding:30px 24px;background:#ffffffed;border:1px solid #ffd0e0;border-radius:28px;text-align:center;box-shadow:0 20px 60px #a92d5d20}
+.pin-lock{font-size:3rem;margin-bottom:8px}
+.pin-card h2{font-family:Georgia,serif;font-size:2rem;color:#a92d5d;margin:8px 0}
+.pin-card p{line-height:1.6;color:#87546a}
+#pinInput{width:100%;margin:12px 0 10px;padding:15px;border:1px solid #f2a9c4;border-radius:14px;background:#fff8fb;text-align:center;font-size:1.5rem;letter-spacing:12px;color:#8e2852;outline:none}
+#pinInput:focus{border-color:#c83269;box-shadow:0 0 0 3px #ffb6d0aa}
+#pinError{min-height:22px;color:#c83269;font-size:.9rem;margin:4px 0 10px}
+#pinGate .primary{width:100%}
+
+
+/* Extra romantic animations */
+html{scroll-behavior:smooth}
+body{animation:pageIn .9s ease both}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+.hero h1{animation:titleFloat 3.5s ease-in-out infinite}
+@keyframes titleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.card{animation:cardEnter .75s cubic-bezier(.2,.8,.2,1) both;transition:transform .3s ease,box-shadow .3s ease}
+.card:nth-child(2){animation-delay:.12s}.card:nth-child(3){animation-delay:.22s}.card:nth-child(4){animation-delay:.32s}
+@keyframes cardEnter{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.card:hover{transform:translateY(-5px);box-shadow:0 20px 40px #b52d5d1b}
+button,.button{position:relative;overflow:hidden}
+button::after,.button::after{content:"";position:absolute;inset:0;transform:translateX(-130%);background:linear-gradient(100deg,transparent,#ffffff70,transparent);transition:transform .65s ease}
+button:hover::after,.button:hover::after{transform:translateX(130%)}
+.heart{filter:drop-shadow(0 5px 8px #d94d8030)}
+#pinGate{animation:gateFade .6s ease both}
+.pin-card{animation:pinPop .7s cubic-bezier(.2,.9,.25,1.2) both}
+@keyframes gateFade{from{opacity:0}to{opacity:1}}
+@keyframes pinPop{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
+.letter.show{animation:letterOpen .55s cubic-bezier(.2,.8,.2,1) both;transform-origin:top center}
+@keyframes letterOpen{from{opacity:0;transform:rotateX(-12deg) translateY(10px)}to{opacity:1;transform:rotateX(0) translateY(0)}}
+#progress{position:relative;overflow:hidden}
+#progress::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent,#ffffff90,transparent);animation:progressShine 1.7s linear infinite}
+@keyframes progressShine{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.float{filter:drop-shadow(0 3px 4px #c8326925)}
+#confettiLayer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5000}
+.confetti{position:absolute;top:-40px;animation:confettiFall var(--duration,4s) linear forwards;will-change:transform,opacity}
+@keyframes confettiFall{0%{transform:translate3d(0,-5vh,0) rotate(0deg);opacity:0}10%{opacity:1}100%{transform:translate3d(var(--drift,30px),110vh,0) rotate(620deg);opacity:0}}
+#loveToast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;z-index:6000;background:#a92d5d;color:#fff;padding:12px 18px;border-radius:999px;box-shadow:0 10px 30px #a92d5d40;font-weight:800;transition:opacity .3s,transform .3s;pointer-events:none;white-space:nowrap}
+#loveToast.show{opacity:1;transform:translate(-50%,0)}
+#loveTypingOverlay{position:fixed;inset:0;z-index:7000;display:none;align-items:center;justify-content:center;text-align:center;padding:28px;background:radial-gradient(circle at center,#fff8fc 0,#ffe3ef 55%,#ffc8dd 100%);}
+#loveTypingOverlay.show{display:flex;animation:loveSceneIn .55s ease both}
+.love-scene{max-width:700px;width:100%;}
+.love-scene .scene-heart{font-size:clamp(3rem,10vw,5.5rem);animation:pulse .9s ease-in-out infinite;filter:drop-shadow(0 8px 16px #d94d8050)}
+#loveTypingText{font-family:Georgia,serif;font-size:clamp(2rem,8vw,4.7rem);font-weight:700;color:#a92d5d;line-height:1.2;min-height:2.5em;margin:18px 0 12px;white-space:pre-wrap;overflow-wrap:anywhere}
+#loveTypingSub{font-size:clamp(1rem,3.5vw,1.3rem);color:#9c2854;min-height:3em;line-height:1.7}
+.typing-cursor{display:inline-block;width:3px;height:.9em;background:#c83269;vertical-align:-.08em;margin-left:4px;animation:cursorBlink .7s steps(2,start) infinite}
+@keyframes cursorBlink{to{visibility:hidden}}
+@keyframes loveSceneIn{from{opacity:0}to{opacity:1}}
+#loveTypingOverlay.leaving{animation:loveSceneOut .5s ease forwards}
+@keyframes loveSceneOut{to{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+@media(max-width:650px){.grid{grid-template-columns:1fr}.card{padding:21px}main{padding-top:20px}}
+</style>
+</head>
+<body>
+
+<div id="pinGate" role="dialog" aria-modal="true" aria-labelledby="pinTitle">
+  <form class="pin-card" id="pinForm">
+    <div class="pin-lock">🔐💗</div>
+    <div class="kicker">rahasia untuk orang spesial</div>
+    <h2 id="pinTitle">Masukkan PIN</h2>
+    <p>Masukkan kode rahasia untuk membuka kejutan cinta ini. 🌷</p>
+    <input id="pinInput" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="••••••" autocomplete="off" aria-label="PIN enam digit" required>
+    <div id="pinError" aria-live="polite"></div>
+    <button type="submit" class="primary">Buka kejutan 💌</button>
+    <p class="note">Hint: tanggal spesial kalian 😉</p>
+  </form>
+</div>
+
+<div id="confettiLayer" aria-hidden="true"></div><div id="loveToast" role="status">Kamu disayang banget! 💗</div>
+<div id="loveTypingOverlay" role="status" aria-live="polite">
+  <div class="love-scene">
+    <div class="scene-heart">💗</div>
+    <div id="loveTypingText"></div><span class="typing-cursor" aria-hidden="true"></span>
+    <div id="loveTypingSub"></div>
+  </div>
+</div>
+<main>
+  <header class="hero">
+    <div class="heart">♡</div>
+    <div class="kicker">surat kecil untuk orang spesial</div>
+    <h1>Hai, Sayangku! 🌷</h1>
+    <p class="subtitle">Aku punya sedikit kejutan buat kamu. Nggak mewah, tapi dibuat dengan banyak rasa sayang. Jadi, siap-siap senyum yaa. 💗</p>
+  </header>
+
+  <section class="grid">
+    <article class="card">
+      <div class="big-icon">💌</div>
+      <h2>Ada surat masuk!</h2>
+      <p>Seseorang yang diam-diam (atau terang-terangan 😚) sayang banget sama kamu mengirimkan surat.</p>
+      <button class="primary full" id="openLetter">Buka suratnya 💌</button>
+      <div class="letter" id="letter">
+        <strong>Untuk sayangku, cintaku… ♡</strong><br><br>
+        Hai kamu, iya kamu yang lagi baca ini. Aku cuma mau bilang kalau kehadiran kamu itu berarti banget buat aku. Makasih sudah jadi kamu—dengan semua cerita, tawa, dan hal-hal kecil yang bikin hariku lebih indah.<br><br>
+        Kalau suatu hari kamu capek, semoga kamu ingat kalau ada aku yang selalu pengin dengerin cerita kamu. Aku mungkin nggak selalu sempurna, tapi aku mau terus belajar menyayangimu dengan cara yang baik, tulus, dan nyata.<br><br>
+        <strong>Love you, sayangku. Jangan lupa bahagia hari ini, ya. 💗</strong><br>
+        <span class="note">— dari seseorang yang selalu punya tempat khusus buat kamu</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="big-icon">💐</div>
+      <h2>Bunga buat kamu</h2>
+      <p>Terima bunga virtual ini, ya. Setiap klik adalah satu buket kecil penuh cinta. Sampai 100% berarti peluk virtualnya makin banyak! 🫶</p>
+      <div class="progress-wrap"><div id="progress"></div></div>
+      <div><span class="percent" id="percent">0%</span> <span id="flowerCount">· buket belum diterima</span></div>
+      <div style="height:14px"></div>
+      <button class="primary full" id="flowerBtn">Terima bunga 🌹</button>
+      <p class="note" id="flowerMessage" aria-live="polite">Tekan tombolnya untuk menerima bunga pertamamu.</p>
+    </article>
+
+    <article class="card">
+      <div class="big-icon">🎧</div>
+      <h2>Lagu kita?</h2>
+      <p>Putar lagu ini, bayangin aku ada di sebelah kamu, terus kita nyanyi pelan-pelan bareng. 🎶</p>
+      <a class="button secondary full" href="https://www.youtube.com/results?search_query=NIKI+Take+A+Chance+With+Me+official" target="_blank" rel="noopener noreferrer">Dengarkan “Take A Chance With Me” ↗</a>
+      <p class="note">Lagu akan terbuka di YouTube. Tekan play di sana, yaa.</p>
+    </article>
+
+    <article class="card">
+      <div class="big-icon">💗</div>
+      <h2>Love you, sayangku!</h2>
+      <p>Kalau kamu sudah senyum-senyum sendiri bacanya, kabarin aku dong. Aku mau tahu reaksi kamu! 🥹</p>
+      <a class="button primary full" href="https://wa.me/6282170898982?text=Hai%20sayangku%20%F0%9F%92%97%20Aku%20sudah%20buka%20surat%20dan%20terima%20bunganya!" target="_blank" rel="noopener noreferrer">Hubungi aku via WhatsApp 💬</a>
+      <p class="note">Tombol ini membuka WhatsApp dengan pesan siap kirim.</p>
+    </article>
+
+    <article class="card">
+      <div class="big-icon">📸</div>
+      <h2>Foto buat aku?</h2>
+      <p>Ambil foto langsung dari kamera HP kamu, lalu bagikan lewat WhatsApp ke aku, yaa! 💗</p>
+      <input id="photoInput" type="file" accept="image/*" capture="user" hidden>
+      <button class="primary full" id="cameraBtn" type="button">Buka kamera 📷</button>
+      <div id="photoArea" style="display:none;margin-top:14px">
+        <img id="photoPreview" alt="Pratinjau foto yang dipilih" style="display:block;width:100%;max-height:320px;object-fit:contain;border-radius:16px;border:1px solid #ffd0e0;background:#fff8fb">
+        <p class="note" id="photoStatus" aria-live="polite">Foto siap dibagikan.</p>
+        <button class="primary full" id="sharePhotoBtn" type="button">Bagikan foto ke WhatsApp 💬</button>
+      </div>
+      <p class="note">Kamera membutuhkan izin dari browser. Setelah dijepret, menu berbagi akan terbuka otomatis jika browser mendukung. Kamu tetap perlu mengonfirmasi pengiriman di WhatsApp.</p>
+    </article>
+
+  </section>
+
+  <div class="banner">🌸 <strong>Pengingat kecil:</strong> kamu berharga, kamu disayang, dan kamu pantas menerima cinta yang tulus. 🌸</div>
+  <footer>Dibuat dengan banyak cinta, khusus untuk kamu. <span style="color:#d33b72">♥</span></footer>
+</main>
+<script>
+
+const pinForm = document.getElementById('pinForm');
+const pinInput = document.getElementById('pinInput');
+pinForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (pinInput.value === '240626') {
+    document.getElementById('pinGate').remove();
+  } else {
+    document.getElementById('pinError').textContent = 'PIN-nya belum tepat, coba lagi yaa 💗';
+    pinInput.value = '';
+    pinInput.focus();
+  }
+});
+
+
+// Floating hearts and sparkle confetti
+const confettiLayer = document.getElementById('confettiLayer');
+const loveToast = document.getElementById('loveToast');
+let toastTimer;
+function showLoveToast(message){
+  loveToast.textContent = message;
+  loveToast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>loveToast.classList.remove('show'), 2100);
+}
+function confettiBurst(amount=34){
+  const pieces=['💗','💕','♡','🌸','✨','🌷'];
+  for(let i=0;i<amount;i++){
+    const piece=document.createElement('span');
+    piece.className='confetti';
+    piece.textContent=pieces[Math.floor(Math.random()*pieces.length)];
+    piece.style.left=(Math.random()*100)+'vw';
+    piece.style.setProperty('--duration',(2.4+Math.random()*2.5)+'s');
+    piece.style.setProperty('--drift',((Math.random()-.5)*180)+'px');
+    piece.style.fontSize=(14+Math.random()*20)+'px';
+    piece.style.animationDelay=(Math.random()*.45)+'s';
+    confettiLayer.appendChild(piece);
+    setTimeout(()=>piece.remove(),5500);
+  }
+}
+// Gentle floating hearts in the background
+setInterval(()=>{
+  if(document.hidden) return;
+  const el=document.createElement('span');
+  el.className='float';
+  el.textContent=['♡','💗','✨'][Math.floor(Math.random()*3)];
+  el.style.left=(Math.random()*100)+'vw';
+  el.style.fontSize=(14+Math.random()*18)+'px';
+  el.style.animationDuration=(7+Math.random()*5)+'s';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),12500);
+}, 1500);
+
+
+// Camera/photo selection and WhatsApp sharing
+let selectedPhoto = null;
+const photoInput = document.getElementById('photoInput');
+const cameraBtn = document.getElementById('cameraBtn');
+const photoArea = document.getElementById('photoArea');
+const photoPreview = document.getElementById('photoPreview');
+const photoStatus = document.getElementById('photoStatus');
+const sharePhotoBtn = document.getElementById('sharePhotoBtn');
+
+let cameraStream = null;
+cameraBtn.addEventListener('click', async () => {
+  // Open the live camera directly; do not open the gallery picker.
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    showLoveToast('Kamera perlu website HTTPS dan browser yang mendukung 📷');
+    photoStatus.textContent = 'Buka website melalui HTTPS di browser HP untuk menggunakan kamera.';
+    photoArea.style.display = 'block';
+    return;
+  }
+  try {
+    cameraStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: 'user' },
+      audio: false
+    });
+    let cameraBox = document.getElementById('liveCameraBox');
+    if (!cameraBox) {
+      cameraBox = document.createElement('div');
+      cameraBox.id = 'liveCameraBox';
+      cameraBox.style.cssText = 'margin-top:14px;text-align:center';
+      cameraBox.innerHTML = '<video id="liveCamera" autoplay playsinline style="display:block;width:100%;max-height:360px;object-fit:cover;border-radius:16px;background:#111"></video><button class="primary full" id="takePhotoBtn" type="button" style="margin-top:10px">Jepret foto 💗</button><button class="secondary full" id="cancelCameraBtn" type="button" style="margin-top:8px">Tutup kamera</button>';
+      cameraBtn.insertAdjacentElement('afterend', cameraBox);
+      document.getElementById('takePhotoBtn').addEventListener('click', () => {
+        const video = document.getElementById('liveCamera');
+        if (!video || !video.videoWidth) {
+          showLoveToast('Tunggu kamera siap dulu ya 📷');
+          return;
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0);
+        canvas.toBlob(blob => {
+          if (!blob) {
+            showLoveToast('Foto belum berhasil diambil, coba lagi ya 💗');
+            return;
+          }
+          selectedPhoto = new File([blob], 'foto-sayang.jpg', {type:'image/jpeg'});
+          photoPreview.src = URL.createObjectURL(selectedPhoto);
+          photoArea.style.display = 'block';
+          photoStatus.textContent = 'Menyambungkan ke WhatsApp untuk membagikan foto… 💗';
+          stopCamera();
+          showLoveToast('Foto berhasil! Ada pesan cinta buat kamu… 📸💗');
+          confettiBurst(28);
+          // Tampilkan pesan cinta dengan efek mengetik, lalu buka menu berbagi foto.
+          typeLoveAfterPhoto().then(() => shareCapturedPhoto(selectedPhoto));
+        }, 'image/jpeg', 0.92);
+      });
+      document.getElementById('cancelCameraBtn').addEventListener('click', stopCamera);
+    }
+    document.getElementById('liveCamera').srcObject = cameraStream;
+    cameraBox.style.display = 'block';
+    photoStatus.textContent = 'Izinkan akses kamera jika diminta, lalu tekan Jepret foto.';
+    photoArea.style.display = 'block';
+  } catch (err) {
+    showLoveToast('Kamera tidak bisa dibuka. Cek izin kamera ya 📷');
+    photoStatus.textContent = 'Kamera ditolak atau tidak tersedia. Izinkan akses kamera di browser lalu coba lagi.';
+    photoArea.style.display = 'block';
+  }
+});
+function stopCamera() {
+  if (cameraStream) {
+    cameraStream.getTracks().forEach(track => track.stop());
+    cameraStream = null;
+  }
+  const cameraBox = document.getElementById('liveCameraBox');
+  const video = document.getElementById('liveCamera');
+  if (video) video.srcObject = null;
+  if (cameraBox) cameraBox.style.display = 'none';
+}
+
+function typeText(element, text, speed) {
+  return new Promise(resolve => {
+    element.textContent = '';
+    let i = 0;
+    function tick() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i++);
+        setTimeout(tick, speed);
+      } else resolve();
+    }
+    tick();
+  });
+}
+
+async function typeLoveAfterPhoto() {
+  const overlay = document.getElementById('loveTypingOverlay');
+  const title = document.getElementById('loveTypingText');
+  const subtitle = document.getElementById('loveTypingSub');
+  overlay.classList.remove('leaving');
+  overlay.classList.add('show');
+  await typeText(title, 'Love You, Sayangku! 💗', 95);
+  await new Promise(resolve => setTimeout(resolve, 250));
+  await typeText(subtitle, 'Cintaku, kamu selalu punya tempat paling istimewa di hatiku. Muah! 😚💕', 38);
+  confettiBurst(32);
+  await new Promise(resolve => setTimeout(resolve, 1200));
+  overlay.classList.add('leaving');
+  await new Promise(resolve => setTimeout(resolve, 520));
+  overlay.classList.remove('show', 'leaving');
+  title.textContent = '';
+  subtitle.textContent = '';
+}
+
+async function shareCapturedPhoto(photo) {
+  if (!photo) return;
+  const caption = 'Hai sayangku, ini foto buat kamu! 💗🌹';
+  const whatsappUrl = 'https://api.whatsapp.com/send/?phone=6282170898982&text=Hai+sayangku+%EF%BF%BD+Aku+sudah+buka+surat+dan+terima+bunga%21&type=phone_number&app_absent=0';
+
+  // Jika browser mendukung berbagi file, tampilkan menu berbagi dengan foto terlampir.
+  // Pengguna tetap harus memilih WhatsApp/chat dan menekan Kirim sendiri.
+  try {
+    const fileForShare = new File([photo], photo.name || 'foto-sayang.jpg', {
+      type: photo.type || 'image/jpeg'
+    });
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [fileForShare] })) {
+      await navigator.share({ files: [fileForShare], title: 'Foto buat sayangku', text: caption });
+      photoStatus.textContent = 'Pilih WhatsApp dan chat tujuan di menu berbagi, lalu tekan Kirim. 💗';
+      return;
+    }
+  } catch (err) {
+    if (err && err.name === 'AbortError') {
+      photoStatus.textContent = 'Berbagi dibatalkan. Tekan tombol WhatsApp di bawah untuk mencoba lagi.';
+      return;
+    }
+    // Fallback di bawah untuk browser yang tidak mendukung berbagi foto.
+  }
+
+  // Fallback: simpan foto dan langsung buka chat WhatsApp; lampirkan foto secara manual.
+  const downloadUrl = URL.createObjectURL(photo);
+  const a = document.createElement('a');
+  a.href = downloadUrl;
+  a.download = photo.name || 'foto-sayang.jpg';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(downloadUrl), 10000);
+  window.location.href = whatsappUrl;
+  photoStatus.textContent = 'WhatsApp dibuka. Jika foto belum terlampir otomatis, lampirkan foto yang baru diunduh lalu tekan Kirim.';
+}
+
+sharePhotoBtn.addEventListener('click', () => shareCapturedPhoto(selectedPhoto));
+
+const openLetter = document.getElementById('openLetter');
+const letter = document.getElementById('letter');
+openLetter.addEventListener('click', () => {
+  const isOpen = letter.classList.toggle('show');
+  if (isOpen) { confettiBurst(22); showLoveToast('Surat cinta khusus buat kamu 💌'); }
+  openLetter.textContent = isOpen ? 'Tutup surat 💌' : 'Buka suratnya 💌';
+});
+let love = 0;
+const flowerBtn = document.getElementById('flowerBtn');
+flowerBtn.addEventListener('click', () => {
+  love = Math.min(100, love + 10);
+  confettiBurst(love === 100 ? 65 : 16);
+  showLoveToast(love === 100 ? 'Buket cinta 100% buat kamu! 💐💖' : 'Satu lagi bunga penuh cinta 🌹');
+  document.getElementById('progress').style.width = love + '%';
+  document.getElementById('percent').textContent = love + '%';
+  document.getElementById('flowerCount').textContent = love === 100 ? '· semua buket sudah jadi milikmu!' : '· bunga diterima';
+  const messages = {
+    10:'Satu bunga untuk senyum manismu 🌹',
+    20:'Dua buket, dua kali lebih sayang! 🌷',
+    30:'Aku kirim bunga sambil kirim kangen 💐',
+    40:'Semoga harimu seindah bunga ini 🌸',
+    50:'Setengah jalan, tapi sayangku nggak setengah-setengah 💗',
+    60:'Enam puluh persen bunga, seratus persen gemas 🥹',
+    70:'Boleh minta senyum satu? 😊',
+    80:'Bunganya banyak, rasa sayangnya lebih banyak 🌺',
+    90:'Dikit lagi sampai buket cinta maksimal! 💞',
+    100:'Buket cinta terkirim 100%! Peluk virtual super erat buat kamu! 🫂💖'
+  };
+  document.getElementById('flowerMessage').textContent = messages[love];
+  flowerBtn.textContent = love === 100 ? 'Bunga sudah penuh! 💖' : 'Terima bunga lagi 🌹';
+  if (love === 100) flowerBtn.disabled = true;
+  burstFlowers();
+});
+function burstFlowers(){
+  const symbols=['🌸','🌷','💗','🌹','✨','💕'];
+  for(let i=0;i<8;i++){
+    const el=document.createElement('span');
+    el.className='float';
+    el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    el.style.left=(Math.random()*100)+'vw';
+    el.style.fontSize=(18+Math.random()*22)+'px';
+    el.style.animationDuration=(3+Math.random()*3)+'s';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),6200);
+  }
+}
+</script>
+</body>
+</html>
